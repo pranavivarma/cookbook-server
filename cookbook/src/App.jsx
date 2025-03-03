@@ -25,9 +25,6 @@ const Home = () => (
         <Link to="/recipes" className="btn">Explore Recipes</Link>
       </section>
     </main>
-    <footer>
-      <p>&copy; 2025 Cookbook. All rights reserved.</p>
-    </footer>
   </div>
 );
 
