@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from "react-router-dom";
 import "./styles.css";
+import Dashboard from "./pages/Dashboard"; // Import Dashboard component
+
+<Route path="/dashboard" element={<Dashboard />} />
 
 const Navbar = () => (
   <nav>
