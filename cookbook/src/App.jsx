@@ -1,9 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link, useLocation } from "react-router-dom";
 import "./styles.css";
-import Dashboard from "./pages/Dashboard"; // Import Dashboard component
-
-<Route path="/dashboard" element={<Dashboard />} />
 
 const Navbar = () => (
   <nav>
@@ -12,6 +9,7 @@ const Navbar = () => (
       <li><Link to="/recipes">Recipes</Link></li>
       <li><Link to="/communities">Communities</Link></li>
       <li><Link to="/profile">Profile</Link></li>
+      <li><Link to="/dashboard">Dashboard</Link></li> {/* Add Dashboard link */}
     </ul>
   </nav>
 );
@@ -19,13 +17,38 @@ const Navbar = () => (
 const Home = () => (
   <div className="home-container">
     <header>
-      <h1>Cookbook</h1>
+      <h1>𝐂𝐎𝐎𝐊𝐁𝐎𝐎𝐊</h1>
       <Navbar />
     </header>
     <main>
       <section className="hero">
         <h2>Discover Authentic Recipes</h2>
         <Link to="/recipes" className="btn">Explore Recipes</Link>
+      </section>
+    </main>
+  </div>
+);
+
+const Dashboard = () => (
+  <div className="dashboard-container">
+    <header>
+      <h1>Dashboard</h1>
+      <Navbar />
+    </header>
+    <main>
+      <h2>Welcome to Your Dashboard</h2>
+      <p>Here you can view your saved recipes, track your progress, and engage with the community.</p>
+      <section className="dashboard-section">
+        <h3>Your Saved Recipes</h3>
+        <ul>
+          <li>Recipe 1</li>
+          <li>Recipe 2</li>
+          <li>Recipe 3</li>
+        </ul>
+      </section>
+      <section className="dashboard-section">
+        <h3>Community Updates</h3>
+        <p>Stay connected with the latest updates from the food community.</p>
       </section>
     </main>
   </div>
@@ -97,6 +120,7 @@ const App = () => {
     <div className="app-container">
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/communities" element={<Communities />} />
         <Route path="/profile" element={<Profile />} />
