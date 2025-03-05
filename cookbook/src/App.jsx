@@ -80,30 +80,45 @@ const Profile = () => (
   </div>
 );
 
-const Login = () => (
-  <div className="auth-container">
-    <h2>Login</h2>
-    <form>
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <Link to="/register">Register</Link></p>
-  </div>
-);
+const Login = () => {
+  const handleLogin = (event) => {
+    event.preventDefault(); // Prevent page refresh
+    console.log("Login form submitted");
+  };
 
-const Register = () => (
-  <div className="auth-container">
-    <h2>Register</h2>
-    <form>
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button type="submit">Sign Up</button>
-    </form>
-    <p>Already have an account? <Link to="/login">Login</Link></p>
-  </div>
-);
+  return (
+    <div className="auth-container">
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <Link to="/register">Register</Link></p>
+    </div>
+  );
+};
+
+const Register = () => {
+  const handleRegister = (event) => {
+    event.preventDefault(); // Prevent page refresh
+    console.log("Register form submitted");
+  };
+
+  return (
+    <div className="auth-container">
+      <h2>Register</h2>
+      <form onSubmit={handleRegister}>
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Sign Up</button>
+      </form>
+      <p>Already have an account? <Link to="/login">Login</Link></p>
+    </div>
+  );
+};
+
 
 const Footer = () => (
   <footer>
