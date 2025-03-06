@@ -3,3 +3,10 @@
     "react-router-dom": "^7.1.5"
   }
 }
+{
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  }
+}
+
