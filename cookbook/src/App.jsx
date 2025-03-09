@@ -7,9 +7,10 @@ const Navbar = () => (
     <ul>
       <li><Link to="/">Home</Link></li>
       <li><Link to="/recipes">Recipes</Link></li>
+      <li><Link to="/submit-recipe">Submit Recipe</Link></li> {/* Added Submit Recipe */}
       <li><Link to="/communities">Communities</Link></li>
       <li><Link to="/profile">Profile</Link></li>
-      <li><Link to="/dashboard">Dashboard</Link></li> {/* Add Dashboard link */}
+      <li><Link to="/dashboard">Dashboard</Link></li>
     </ul>
   </nav>
 );
@@ -65,6 +66,17 @@ const Recipes = () => (
   </div>
 );
 
+const SubmitRecipe = () => (
+  <div className="submit-recipe-container">
+    <h2>Submit Your Recipe</h2>
+    <form>
+      <input type="text" placeholder="Recipe Name" required />
+      <textarea placeholder="Write your recipe details..." required></textarea>
+      <button type="submit">Submit Recipe</button>
+    </form>
+  </div>
+);
+
 const Communities = () => (
   <div className="communities-container">
     <h2>Communities</h2>
@@ -80,45 +92,30 @@ const Profile = () => (
   </div>
 );
 
-const Login = () => {
-  const handleLogin = (event) => {
-    event.preventDefault(); // Prevent page refresh
-    console.log("Login form submitted");
-  };
+const Login = () => (
+  <div className="auth-container">
+    <h2>Login</h2>
+    <form>
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <Link to="/register">Register</Link></p>
+  </div>
+);
 
-  return (
-    <div className="auth-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-      </form>
-      <p>Don't have an account? <Link to="/register">Register</Link></p>
-    </div>
-  );
-};
-
-const Register = () => {
-  const handleRegister = (event) => {
-    event.preventDefault(); // Prevent page refresh
-    console.log("Register form submitted");
-  };
-
-  return (
-    <div className="auth-container">
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
-        <input type="text" placeholder="Full Name" required />
-        <input type="email" placeholder="Email" required />
-        <input type="password" placeholder="Password" required />
-        <button type="submit">Sign Up</button>
-      </form>
-      <p>Already have an account? <Link to="/login">Login</Link></p>
-    </div>
-  );
-};
-
+const Register = () => (
+  <div className="auth-container">
+    <h2>Register</h2>
+    <form>
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <Link to="/login">Login</Link></p>
+  </div>
+);
 
 const Footer = () => (
   <footer>
@@ -128,7 +125,7 @@ const Footer = () => (
 
 const App = () => {
   const location = useLocation();
-  const hideFooterOnPages = ["/profile", "/login", "/register", "/recipes", "/communities"];
+  const hideFooterOnPages = ["/profile", "/login", "/register", "/recipes", "/communities", "/submit-recipe"];
   const shouldShowFooter = !hideFooterOnPages.includes(location.pathname);
 
   return (
@@ -137,6 +134,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/recipes" element={<Recipes />} />
+        <Route path="/submit-recipe" element={<SubmitRecipe />} /> {/* Added SubmitRecipe Route */}
         <Route path="/communities" element={<Communities />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
