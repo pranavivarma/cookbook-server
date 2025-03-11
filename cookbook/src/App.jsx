@@ -7,10 +7,9 @@ const Navbar = () => (
     <ul>
       <li><Link to="/">Home</Link></li>
       <li><Link to="/recipes">Recipes</Link></li>
-      <li><Link to="/submit-recipe">Submit Recipe</Link></li> {/* Added Submit Recipe */}
       <li><Link to="/communities">Communities</Link></li>
       <li><Link to="/profile">Profile</Link></li>
-      <li><Link to="/dashboard">Dashboard</Link></li>
+      <li><Link to="/dashboard">Dashboard</Link></li> {/* Add Dashboard link */}
     </ul>
   </nav>
 );
@@ -66,17 +65,6 @@ const Recipes = () => (
   </div>
 );
 
-const SubmitRecipe = () => (
-  <div className="submit-recipe-container">
-    <h2>Submit Your Recipe</h2>
-    <form>
-      <input type="text" placeholder="Recipe Name" required />
-      <textarea placeholder="Write your recipe details..." required></textarea>
-      <button type="submit">Submit Recipe</button>
-    </form>
-  </div>
-);
-
 const Communities = () => (
   <div className="communities-container">
     <h2>Communities</h2>
@@ -125,7 +113,7 @@ const Footer = () => (
 
 const App = () => {
   const location = useLocation();
-  const hideFooterOnPages = ["/profile", "/login", "/register", "/recipes", "/communities", "/submit-recipe"];
+  const hideFooterOnPages = ["/profile", "/login", "/register", "/recipes", "/communities"];
   const shouldShowFooter = !hideFooterOnPages.includes(location.pathname);
 
   return (
@@ -134,7 +122,6 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/submit-recipe" element={<SubmitRecipe />} /> {/* Added SubmitRecipe Route */}
         <Route path="/communities" element={<Communities />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
